@@ -31,10 +31,7 @@ function App() {
   }
 
   function selectShow(show) {
-    Adapter.getShowEpisodes(show.id).then((episodes) => {
-      setSelectedShow(show);
-      setEpisodes(episodes);
-    });
+    return Adapter.getShowEpisodes(show, setSelectedShow, setEpisodes)
   }
 
   let displayShows = shows;

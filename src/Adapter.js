@@ -5,9 +5,14 @@ class Adapter {
     .then(data => setFunc(data))
   }
 
-  static getShowEpisodes (showID){
-    return fetch(`http://api.tvmaze.com/shows/${showID}/episodes`)
-    .then(res => res.json)
+  static getShowEpisodes (show, setSelectShow, setEpisodes){
+    fetch(`http://api.tvmaze.com/shows/${show.id}/_links`)
+    .then(res => res.json())
+    .then(episodes => {
+      setSelectShow(show)
+      setEpisodes(episodes)
+      console.log("Episodes:", episodes);
+    })
   }
 }
 

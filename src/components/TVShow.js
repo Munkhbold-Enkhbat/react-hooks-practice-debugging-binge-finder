@@ -1,7 +1,7 @@
 import React from "react";
 
 function TVShow(props) {
-  console.log("Props:", props)
+  // console.log("Props:", props)
   return (
     <div>
       <br />
