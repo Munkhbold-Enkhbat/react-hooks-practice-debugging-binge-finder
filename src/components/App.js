@@ -10,10 +10,10 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedShow, setSelectedShow] = useState("");
   const [episodes, setEpisodes] = useState([]);
-  const [filterByRating, setFilterByRating] = useState("");
+  const [filterByRating, setFilterByRating] = useState("");  
 
   useEffect(() => {
-    Adapter.getShows().then((shows) => setShows(shows));
+    Adapter.getShows(setShows)
   }, []);
 
   useEffect(() => {
@@ -43,6 +43,8 @@ function App() {
       return s.rating.average >= filterByRating;
     });
   }
+
+  console.log(shows)
 
   return (
     <div>

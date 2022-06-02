@@ -1,7 +1,8 @@
 class Adapter {
-  static getShows (){
+  static getShows (setFunc){
     fetch("http://api.tvmaze.com/shows")
     .then(res => res.json())
+    .then(data => setFunc(data))
   }
 
   static getShowEpisodes (showID){
