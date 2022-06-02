@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Episode from "./Components/Episode";
+import Episode from "./Episode";
 
 function SelectedShowContainer(props) {
-  const selectedSeason = useState(1);
+  let selectedSeason = useState(1);
 
   function mapSeasons() {
     if (!!props.episodes) {
@@ -20,7 +20,7 @@ function SelectedShowContainer(props) {
 
   function mapEpisodes() {
     return props.episodes.map((e) => {
-      if (e.season == selectedSeason) {
+      if (e.season === selectedSeason) {
         return <Episode eachEpisode={e} key={e.id} />;
       }
     });
