@@ -7,7 +7,7 @@ import SelectedShowContainer from "./SelectedShowContainer";
 
 function App() {
   const [shows, setShows] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
   const [selectedShow, setSelectedShow] = useState("");
   const [episodes, setEpisodes] = useState([]);
   const [filterByRating, setFilterByRating] = useState("");  
@@ -46,14 +46,16 @@ function App() {
     });
   }
 
-  // console.log("Filter:",filterByRating);
+  if(searchTerm) {
+    displayShows = displayShows.filter(s => s.name.toLowerCase().includes(searchTerm))
+  }
 
   return (
     <div>
       <Nav
         handleFilter={handleFilter}
         handleSearch={handleSearch}
-        searchTerm={searchTerm}
+        search={searchTerm}
       />
       <Grid celled>
         <Grid.Column width={5}>
